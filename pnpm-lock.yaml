@@ -90,6 +90,9 @@ importers:
       zod:
         specifier: ^3.23.8
         version: 3.23.8
+      zx:
+        specifier: ^8.1.9
+        version: 8.1.9
     devDependencies:
       '@types/jest':
         specifier: ^29.5.12
@@ -3463,6 +3466,7 @@ packages:
 
   glob@7.2.3:
     resolution: {integrity: sha512-nFR0zLpU2YCaRxwoCJvL6UvCH2JFyFVIvwTLsIf21AuHlMskA1hhTdk+LlYJtOlYt9v6dvszD2BGRqBL+iQK9Q==}
+    deprecated: Glob versions prior to v9 are no longer supported
 
   glob@8.1.0:
     resolution: {integrity: sha512-r8hpEjiQEYlF2QU0df3dS+nxxSIreXQS1qRhMJM0Q5NDdR386C7jb7Hwwod8Fgiuex+k0GFjgft18yvxm5XoCQ==}
