@@ -1,0 +1,9 @@
+{
+  "extends": "../tsconfig-base.json",
+  "compilerOptions": {
+    "rootDir": ".",
+    "types": ["node", "jest", "cheerio"],
+    "mapRoot": "tests/",
+    "sourceMap": true
+  }
+}

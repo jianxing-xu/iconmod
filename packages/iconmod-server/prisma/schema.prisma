@@ -1,0 +1,39 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id             Int             @id @default(autoincrement())
+  email          String          @unique
+  name           String          @unique
+  pwd            String
+  projectMembers ProjectMember[]
+}
+
+model ProjectMember {
+  id        Int     @id @default(autoincrement())
+  project   Project @relation(fields: [projectId], references: [id])
+  user      User    @relation(fields: [userId], references: [id])
+  role      Int // 0: member 1:admin
+  projectId Int
+  userId    Int
+}
+
+model Project {
+  id                 Int             @id @default(autoincrement())
+  name               String
+  logo               String?
+  prefix             String          @unique // same as iconset prefix
+  desc               String          @default("project desc")
+  total              Int             @default(0)
+  projectMember      ProjectMember[]
+  projectIconSetJSON String
+}

@@ -1,0 +1,62 @@
+{
+  "name": "@iconmod/web",
+  "type": "module",
+  "version": "0.0.0",
+  "private": true,
+  "packageManager": "pnpm@9.9.0",
+  "license": "MIT",
+  "scripts": {
+    "postinstall": "esno scripts/prepare.ts",
+    "prebuild": "esno scripts/prebuild.ts",
+    "postbuild": "esno scripts/postbuild.ts",
+    "lint": "eslint .",
+    "dev": "vite --port 3333 --open",
+    "dev-pwa": "SW_DEV=true vite --port 3333",
+    "typecheck": "vue-tsc --noEmit",
+    "build": "pnpm postinstall && pnpm prebuild && vite build --mode prod && pnpm postbuild",
+    "build2": "vite build --mode prod",
+    "release": "bash deploy.sh"
+  },
+  "dependencies": {
+    "@antfu/utils": "^0.7.10",
+    "@vueuse/core": "^11.0.0",
+    "@vueuse/integrations": "^11.0.3",
+    "dexie": "^4.0.8",
+    "file-saver": "^2.0.5",
+    "floating-vue": "^5.2.2",
+    "fzf": "^0.5.2",
+    "hotkeys-js": "^3.13.7",
+    "iconify-icon": "^2.1.0",
+    "universal-cookie": "^7.2.0",
+    "vue": "^3.4.38",
+    "vue-chemistry": "^0.2.2",
+    "vue-router": "^4.4.3"
+  },
+  "devDependencies": {
+    "@types/file-saver": "^2.0.7",
+    "@types/fs-extra": "^11.0.4",
+    "@vitejs/plugin-vue": "^5.1.2",
+    "dayjs": "^1.11.12",
+    "esno": "^4.7.0",
+    "fast-glob": "^3.3.2",
+    "fs-extra": "^11.2.0",
+    "jszip": "^3.10.1",
+    "lru-cache": "^11.0.0",
+    "pnpm": "8.10.2",
+    "svg-packer": "^0.0.3",
+    "typescript": "^5.5.4",
+    "unocss": "^0.62.2",
+    "unplugin-auto-import": "^0.18.2",
+    "unplugin-vue-components": "^0.27.4",
+    "vite": "^5.4.1",
+    "vite-plugin-pages": "^0.32.3",
+    "vite-plugin-pwa": "^0.20.1",
+    "vue-tsc": "^2.0.29"
+  },
+  "pnpm": {
+    "neverBuiltDependencies": [
+      "ttf2woff2",
+      "vite-plugin-esmodule"
+    ]
+  }
+}

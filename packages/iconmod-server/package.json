@@ -1,0 +1,54 @@
+{
+  "name": "@iconmod/server",
+  "type": "module",
+  "version": "3.1.0",
+  "packageManager": "pnpm@9.9.0",
+  "description": "Iconify API",
+  "author": "Vjacheslav Trushkin",
+  "license": "MIT",
+  "homepage": "https://github.com/iconify/api",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/iconify/api.git"
+  },
+  "bugs": "https://github.com/iconify/api/issues",
+  "engines": {
+    "node": ">=16.15.0"
+  },
+  "prisma": {
+    "seed": "node prisma/seed.cjs"
+  },
+  "scripts": {
+    "dev": "yarn build && yarn start",
+    "build": "pnpm run p:gen && tsc -b",
+    "test": "vitest --config vitest.config.mjs",
+    "start": "npx zx -y scripts/start_before.js && --expose-gc lib/index.js",
+    "p:mgr": "npx prisma migrate dev",
+    "p:deploy": "npx prisma migrate deploy",
+    "p:gen": "npx prisma generate",
+    "p:push": "npx prisma db push",
+    "docker:build": "bash ./docker.sh",
+    "docker:start": "docker-compose up -d",
+    "docker:stop": "docker-compose stop iconmod-server",
+    "docker:cleanup": "docker-compose stop iconmod-server && docker-compose rm iconmod-server"
+  },
+  "dependencies": {
+    "@fastify/cookie": "^9.4.0",
+    "@fastify/formbody": "^7.4.0",
+    "@fastify/jwt": "^8.0.1",
+    "@iconify/tools": "^4.0.4",
+    "@iconify/types": "^2.0.0",
+    "@iconify/utils": "^2.1.23",
+    "@prisma/client": "5.19.0",
+    "dotenv": "^16.4.5",
+    "fastify": "^4.26.2",
+    "prisma": "^5.19.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.12",
+    "@types/node": "^20.12.7",
+    "typescript": "^5.4.5",
+    "vitest": "^1.5.2"
+  }
+}

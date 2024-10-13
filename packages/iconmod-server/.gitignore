@@ -1,0 +1,10 @@
+.idea
+.vscode
+.DS_Store
+*.map
+tsconfig.tsbuildinfo
+/node_modules
+/lib
+/cache
+/tmp
+/data_volume

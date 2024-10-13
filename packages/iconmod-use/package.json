@@ -1,0 +1,54 @@
+{
+  "name": "@iconmod/use",
+  "type": "module",
+  "version": "0.0.1",
+  "packageManager": "pnpm@9.9.0",
+  "description": "xxxx",
+  "author": "xxx <xxx>",
+  "license": "MIT",
+  "homepage": "https://github.com/xxx",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xxx/xxx"
+  },
+  "bugs": "https://github.com/xxx/xxx/issues",
+  "keywords": [],
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./dist/*",
+        "./dist/index.d.ts"
+      ]
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "unbuild",
+    "dev": "unbuild --stub",
+    "lint": "eslint .",
+    "prepublishOnly": "nr build",
+    "release": "bumpp && npm publish",
+    "start": "esno src/index.ts",
+    "test": "vitest",
+    "typecheck": "tsc --noEmit",
+    "prepare": "simple-git-hooks"
+  },
+  "devDependencies": {
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm lint-staged"
+  }
+}
