@@ -46,5 +46,4 @@ EXPOSE 3131
 # Add a healthcheck (default every 30 secs)
 HEALTHCHECK CMD curl http://localhost:3131/ || exit 1
 
-CMD npx -y zx ./script/start_before.js && \
-    npm run start
+CMD npm run start
