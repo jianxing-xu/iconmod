@@ -5,6 +5,9 @@ FROM node:18-alpine AS iconify-api-install
 WORKDIR /app
 COPY [".", "./"]
 
+# supoort bash for zsh
+RUN apk add --no-cache bash
+
 # Build API
 RUN npm install -g yarn --force
 RUN yarn
