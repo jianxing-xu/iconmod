@@ -2,7 +2,6 @@
   "name": "@iconmod/server",
   "type": "module",
   "version": "3.1.0",
-  "packageManager": "pnpm@9.9.0",
   "description": "Iconify API",
   "author": "Vjacheslav Trushkin",
   "license": "MIT",
@@ -20,7 +19,7 @@
   },
   "scripts": {
     "dev": "yarn build && yarn start",
-    "build": "pnpm run p:gen && tsc -b",
+    "build": "yarn run p:gen && tsc -b",
     "test": "vitest --config vitest.config.mjs",
     "start": "npx zx -y scripts/start_before.js && --expose-gc lib/index.js",
     "p:mgr": "npx prisma migrate dev",
