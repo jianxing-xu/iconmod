@@ -15,15 +15,16 @@ console.log('prismaPath: ', PRISMA_DB)
 console.log('iconsPath: ', ICONS_PATH)
 
 if (await fs.exists(PRISMA_DB) && await fs.pathExists(ICONS_PATH)) {
-  await $`yarn p:deploy`
+  await $`npx prisma migrate deploy`
   console.log('already init. migrate end.')
 }
 else {
   // create icons dir
   await $`mkdir -p ${ICONS_PATH}`
+
   console.log('start init prisma.')
   // create db
-  await $`yarn p:push`
+  await $`npx prisma db push`
 
   console.log('volume init successful!')
 }
