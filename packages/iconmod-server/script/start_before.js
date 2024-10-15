@@ -15,6 +15,7 @@ console.log('prismaPath: ', PRISMA_DB)
 console.log('iconsPath: ', ICONS_PATH)
 
 if (await fs.exists(PRISMA_DB) && await fs.pathExists(ICONS_PATH)) {
+  await $`npx prisma migrate baseline`
   await $`npx prisma migrate deploy`
   console.log('already init. migrate end.')
 }
