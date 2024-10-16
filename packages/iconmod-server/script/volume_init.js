@@ -16,11 +16,11 @@ console.log('iconsPath: ', ICONS_PATH)
 
 if (await fs.exists(PRISMA_DB) && await fs.pathExists(ICONS_PATH)) {
   // create baseline migrate
-  await $`mkdir -p prisma/migrations/0_init`
-  await $`npx prisma migrate diff \
-          --from-empty \
-          --to-schema-datamodel prisma/schema.prisma \
-          --script > prisma/migrations/0_init/migration.sql`
+  // await $`mkdir -p prisma/migrations/0_init`
+  // await $`npx prisma migrate diff \
+  //         --from-empty \
+  //         --to-schema-datamodel prisma/schema.prisma \
+  //         --script > prisma/migrations/0_init/migration.sql`
   await $`npx prisma migrate resolve --applied 0_init`
 
   // deploy migrate

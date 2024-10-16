@@ -11,9 +11,11 @@ RUN apk add --no-cache bash
 # Build API
 RUN npm install -g yarn --force
 RUN yarn
-# generate prisma client code
-RUN yarn run p:gen
-# run ts build
+
+# prisma sync
+RUN npx -y zx script/volume_init.js
+
+# run ts build(prisma generate)
 RUN yarn run build
 
 
