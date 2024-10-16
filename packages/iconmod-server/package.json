@@ -21,7 +21,7 @@
     "dev": "yarn build && yarn start",
     "build": "yarn run p:gen && tsc -b",
     "test": "vitest --config vitest.config.mjs",
-    "start": "npx -y zx script/start_before.js && node --expose-gc lib/index.js",
+    "start": "node --expose-gc lib/index.js",
     "p:mgr": "npx prisma migrate dev",
     "p:deploy": "npx prisma migrate deploy",
     "p:gen": "npx prisma generate",
