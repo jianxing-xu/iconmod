@@ -2,15 +2,12 @@ import type { IconifyIcon, IconifyJSON } from '@iconify/types'
 import type { User } from '@prisma/client'
 import type { FastifyReply, FastifyRequest } from 'fastify'
 import type { APIv2CollectionResponse } from '../../types/server/v2.js'
-import * as fs from 'node:fs/promises'
-import * as path from 'node:path'
 import { IconSet } from '@iconify/tools'
 import { convertParsedSVG, parseSVGContent } from '@iconify/utils'
 import z from 'zod'
-import { writeIconSet } from '../../data/custom-icon.js'
+import { existProject, writeIconSet } from '../../data/custom-icon.js'
 import { triggerIconSetsUpdate } from '../../data/icon-sets.js'
 import { prisma } from '../../data/prisma.js'
-import { fileExists } from '../../misc/files.js'
 import { packSVGSprite } from '../../utils.js'
 import { createAPIv2CollectionResponse } from './collection-v2.js'
 
@@ -156,11 +153,10 @@ export async function handleCreateProject(req: FastifyRequest, res: FastifyReply
     })
 
     const iconJson = iconset.export(true)
-    const iconSetPath = path.join(`icons/${prefix}.json`)
-    if (await fileExists(iconSetPath)) {
+    if (await existProject(prefix)) {
       return res.send({ code: 400, message: `${prefix} iconset existed` })
     }
-    await fs.writeFile(iconSetPath, JSON.stringify(iconJson, null, 2))
+    await writeIconSet(prefix, JSON.stringify(iconJson))
     // update custom icon
     await triggerIconSetsUpdate(1)
 

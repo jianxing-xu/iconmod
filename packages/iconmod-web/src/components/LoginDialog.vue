@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { getOwnProejcts } from '../store/project'
-import { hideLogin, isSignIn, showLoginDialog, userInfo } from '../store/user'
+import { hideLogin, isSignIn, resetUser, showLoginDialog, userInfo } from '../store/user'
 import { mfetch } from '../utils/http'
 
 const loading = ref(false)
@@ -28,7 +28,7 @@ function onSubmit(e: Event) {
       location.reload()
     }, 300)
   }).catch(() => {
-    userInfo.value = null
+    resetUser()
   }).finally(() => {
     loading.value = false
   })

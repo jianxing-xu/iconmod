@@ -8,6 +8,16 @@ export async function loadIconSet(prefix: string) {
   return new IconSet(JSON.parse(jsonStr) as IconifyJSON)
 }
 
+export async function existProject(prefix: string) {
+  const path = `${appConfig.customIconDir}/${prefix}.json`
+  try {
+    await readFile(path)
+    return true
+  }
+  catch (e) {
+    return false
+  }
+}
 export async function writeIconSet(prefix: string, jsonStr: string) {
   await writeFile(`${appConfig.customIconDir}/${prefix}.json`, jsonStr)
 }

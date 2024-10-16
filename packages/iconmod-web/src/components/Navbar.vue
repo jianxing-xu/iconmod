@@ -2,7 +2,7 @@
 import { useCookies } from '@vueuse/integrations/useCookies'
 import { getSearchResults, isDark } from '../store'
 import { showUploadIcon } from '../store/project'
-import { showLogin, userInfo } from '../store/user'
+import { resetUser, showLogin, userInfo } from '../store/user'
 
 export default defineComponent({
   setup() {
@@ -11,7 +11,7 @@ export default defineComponent({
     const cookies = useCookies()
 
     function onLogout() {
-      userInfo.value = null
+      resetUser()
       cookies.remove('iconmod-token', { path: '/' })
       router.replace('/')
       setTimeout(() => location.reload(), 200)

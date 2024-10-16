@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import type { InputHTMLAttributes } from 'vue'
-import { useSearchUser } from '../utils/useSearchUser'
+import { showCreateProject } from '../store/project'
 import { userInfo } from '../store/user'
 import { mfetch } from '../utils/http'
+import { useSearchUser } from '../utils/useSearchUser'
 
 defineEmits(['close'])
 
@@ -29,6 +30,7 @@ async function onSubmit() {
         userIds: [...formData.value.users.values()].map(it => it.id),
       })),
     })).json()
+    showCreateProject.value = false
     router.push({ path: `/project/${formData.value.projectPrefix}` })
   }
   // eslint-disable-next-line unused-imports/no-unused-vars

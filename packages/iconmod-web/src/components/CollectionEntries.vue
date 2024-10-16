@@ -10,8 +10,17 @@ defineEmits(['create'])
 
 <template>
   <div class="collections-list grid gap2" p2>
+    <div
+      v-if="type === 'project'"
+      flex py3
+      justify-center items-center flex-col b b-dashed icon-button hfull cursor-pointer
+      @click="$emit('create')"
+    >
+      <iconify-icon icon="mdi:add-bold" />
+      Create Project
+    </div>
     <template
-      v-for="(collection, i) of collections"
+      v-for="(collection) of collections"
       :key="collection.id"
     >
       <CollectionEntryProject
@@ -19,15 +28,6 @@ defineEmits(['create'])
         :collection="collection"
         :type="type"
       />
-      <div
-        v-if="type === 'project' && i === collections.length - 1"
-        flex py3
-        justify-center items-center flex-col b b-dashed icon-button hfull cursor-pointer
-        @click="$emit('create')"
-      >
-        <iconify-icon icon="mdi:add-bold" />
-        Create Project
-      </div>
       <CollectionEntry
         v-if="type !== 'project'"
         :type="type"

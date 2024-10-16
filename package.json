@@ -2,7 +2,6 @@
   "name": "iconmod",
   "type": "module",
   "version": "0.0.0",
-  "packageManager": "pnpm@9.9.0",
   "description": "xxxx",
   "author": "xxx <xxx>",
   "license": "MIT",
@@ -37,6 +36,7 @@
   ],
   "scripts": {
     "build": "pnpm -r --filter=./packages/* run build",
+    "dev:web": "pnpm -r --filter=./packages/iconmod-web run dev",
     "dev": "unbuild --stub",
     "lint": "eslint .",
     "prepublishOnly": "nr build",

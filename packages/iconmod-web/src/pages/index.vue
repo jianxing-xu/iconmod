@@ -5,6 +5,7 @@ import { useIconAction } from '../hooks'
 import { useIconApiSearch } from '../hooks/useIconApiSearch'
 import { bags, iconSize, listType } from '../store'
 import { getOwnProejcts, projects, showCreateProject } from '../store/project'
+import { isSignIn, showLoginDialog } from '../store/user'
 
 const searchbar = ref<{ input: HTMLElement }>()
 
@@ -102,15 +103,15 @@ onMounted(() => {
         </div>
         <!-- Category listing -->
         <template v-for="c of categorized" :key="c.name">
-          <div v-if="(c.collections).length" px4>
+          <div v-if="(c.collections).length || c.type === 'project'" px4>
             <div px-2 op50 mt6 text-lg>
               {{ c.name }}
             </div>
             <CollectionEntries
               of-hidden
               :collections="c.collections"
-              :type="c.type"
-              @create="showCreateProject = true"
+              :type="c.type as PresentType"
+              @create="isSignIn ? showCreateProject = true : showLoginDialog = true"
             />
           </div>
         </template>
