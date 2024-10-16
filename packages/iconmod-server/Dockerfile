@@ -15,10 +15,6 @@ RUN yarn
 # run ts build(prisma generate)
 RUN yarn run build
 
-# prisma sync
-RUN npx -y zx script/volume_init.js
-
-
 #### Stage RELEASE #####################################################################################################
 FROM iconify-api-install AS RELEASE
 ARG BUILD_DATE
