@@ -12,11 +12,11 @@ RUN apk add --no-cache bash
 RUN npm install -g yarn --force
 RUN yarn
 
-# prisma sync
-RUN npx -y zx script/volume_init.js
-
 # run ts build(prisma generate)
 RUN yarn run build
+
+# prisma sync
+RUN npx -y zx script/volume_init.js
 
 
 #### Stage RELEASE #####################################################################################################
