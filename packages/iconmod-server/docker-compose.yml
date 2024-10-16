@@ -1,7 +1,7 @@
 services:
   iconmod-server:
     ports:
-      - '3030:3030'
+      - '3131:3131'
     image: iconmod-server:latest
     volumes:
       - /home/ubuntu/dockers/iconmod-server/data_volume:/app/data_volume

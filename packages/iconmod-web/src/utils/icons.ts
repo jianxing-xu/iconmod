@@ -1,14 +1,14 @@
-import { buildIcon, loadIcon } from 'iconify-icon'
 import { encodeSvgForCss } from '@iconify/utils'
+import { buildIcon, loadIcon } from 'iconify-icon'
 import { getTransformedId } from '../store'
 import Base64 from './base64'
 import { HtmlToJSX } from './htmlToJsx'
+import { mfetch } from './http'
 import { prettierCode } from './prettier'
 import { svgToPngDataUrl } from './svgToPng'
-import { mfetch } from './http'
 
 // const API_ENTRY = 'https://api.iconify.design'
-const API_ENTRY = 'http://localhost:3030'
+const API_ENTRY = 'http://localhost:3131'
 
 export async function clearSvgs(svgs: any[], dropColor: boolean) {
   const res = await mfetch('/clearSVGs', { method: 'POST', body: JSON.stringify({ svgs, dropColor }) })
