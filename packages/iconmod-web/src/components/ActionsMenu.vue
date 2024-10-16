@@ -1,7 +1,7 @@
 <script setup lang='ts'>
 import type { PropType } from 'vue'
-import { activeMode, iconSize, inProgress, isFavoritedCollection, listType, progressMessage, toggleFavoriteCollection } from '../store'
 import type { CollectionMeta } from '../data'
+import { activeMode, iconSize, inProgress, isFavoritedCollection, listType, progressMessage, toggleFavoriteCollection } from '../store'
 import { PackIconFont, PackJsonZip, PackSvgZip, RemotePackSVGSprite } from '../utils/pack'
 
 const props = defineProps({
