@@ -39,3 +39,7 @@ time docker build --rm=false \
     # --tag ${DOCKER_REPO}:latest --tag ${DOCKER_REPO}:${ICONIFY_API_VERSION} $BUILD_SOURCE
 
 rm -fR $BUILD_SOURCE/tmp
+
+
+# start docker container
+docker-compose up -d
