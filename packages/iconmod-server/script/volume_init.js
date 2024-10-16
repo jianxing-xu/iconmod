@@ -21,7 +21,7 @@ if (await fs.exists(PRISMA_DB) && await fs.pathExists(ICONS_PATH)) {
   //         --from-empty \
   //         --to-schema-datamodel prisma/schema.prisma \
   //         --script > prisma/migrations/0_init/migration.sql`
-  await $`npx prisma migrate resolve --applied 0_init`
+  // await $`npx prisma migrate resolve --applied 0_init`
 
   // deploy migrate
   await $`npx prisma migrate deploy`
