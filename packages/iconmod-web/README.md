@@ -1,14 +1,23 @@
-# IconMod
+# Iconmod Web
 
-自部署 `icon平台`
+# Build
 
-# todo
+`pnpm build`
 
-1. project member manager
-2. upload icons to project
-3. word in project online and offline
-4. work in production by offline
+# Deploy
 
-# TODOSSSS
+`pnpm release`
 
-1. submit icon
+`deploy.sh`
+
+Modify to your own server address and path
+
+```bash
+pnpm run build
+
+ssh -t root@118.26.38.32 rm -fr /home/ubuntu/dockers/nginx/html/iconmod/*
+
+scp -r dist/* root@118.26.38.32:/home/ubuntu/dockers/nginx/html/iconmod/
+
+echo "Deply Success !"
+```
