@@ -54,6 +54,7 @@ export default defineConfig((config) => {
     resolve: {
       alias: {
         'iconify-icon': resolve(__dirname, 'node_modules/iconify-icon/dist/iconify-icon.mjs'),
+        'iconmod': resolve('../iconmod-use/dist/index.mjs'),
       },
     },
     base: mode === 'prod' ? '/iconmod' : '/',

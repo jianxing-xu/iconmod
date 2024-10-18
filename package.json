@@ -36,6 +36,7 @@
   ],
   "scripts": {
     "build": "pnpm -r --filter=./packages/* run build",
+    "build:use": "pnpm -r --filter=./packages/iconmod-use run build",
     "dev:web": "pnpm -r --filter=./packages/iconmod-web run dev",
     "dev": "unbuild --stub",
     "lint": "eslint .",

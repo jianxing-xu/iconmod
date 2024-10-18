@@ -20,6 +20,7 @@ initUser()
 
 <template>
   <div class="flex flex-col h-screen overflow-hidden bg-base" :style="style">
+    <my-element />
     <div class="h-full flex-auto overflow-overlay">
       <RouterView />
     </div>
