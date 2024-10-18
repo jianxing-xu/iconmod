@@ -1,11 +1,13 @@
 <script>
-  import Iconmod from "./iconmod.svelte";
+  import Iconmod from "./lib/components/iconmod.svelte";
 
   export const name = "world";
 </script>
 
 <svelte />
 
-<h1>Hello Svelte {name}!</h1>
-<Iconmod />
-<slot />
+<div class="grid">
+  <div class="icon">
+    <Iconmod />
+  </div>
+</div>

@@ -17,7 +17,7 @@
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/index.mjs",
+      "import": "./dist/index.js",
       "require": "./dist/index.cjs"
     }
   },
@@ -36,21 +36,14 @@
     "dist"
   ],
   "scripts": {
-    "play": "vite --port 5000",
-    "build": "vite build",
-    "dev": "npx unbuild --stub",
-    "release": "bumpp && npm publish",
-    "typecheck": "tsc --noEmit"
+    "dev": "vite --port 5000",
+    "build": "vite build --mode lib",
+    "release": "bumpp && npm publish"
   },
   "devDependencies": {
-    "@rollup/plugin-babel": "^6.0.4",
-    "@rollup/plugin-commonjs": "^28.0.1",
-    "@rollup/plugin-node-resolve": "^15.3.0",
     "@sveltejs/vite-plugin-svelte": "^3.1.2",
-    "@unocss/reset": "^0.55.7",
-    "rollup-plugin-svelte": "^7.2.2",
     "svelte": "^4.2.19",
-    "unocss": "^0.55.7",
-    "vite": "^4.4.9"
+    "vite": "^4.4.9",
+    "vite-plugin-dts": "^4.2.4"
   }
 }
