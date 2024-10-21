@@ -2,7 +2,7 @@
 'use strict'
 
 import path from 'node:path'
-import { __iconmod_config__ } from '../dist/config'
+import { __iconmod_config__ } from '../dist/pkg/config.mjs'
 
 const { assetPath } = __iconmod_config__
 
