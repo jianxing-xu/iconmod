@@ -1,7 +1,7 @@
 {
   "name": "@iconmod/use",
   "type": "module",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "packageManager": "pnpm@9.9.0",
   "description": "iconmod icon use",
   "author": "jianxing-xu",
@@ -9,7 +9,7 @@
   "homepage": "https://github.com/jianxing-xu/iconmod/tree/main/packages/iconmod-use",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jianxing-xu/iconmod/tree/main/packages/iconmod-use"
+    "url": "git+https://github.com/jianxing-xu/iconmod/"
   },
   "bugs": "https://github.com/jianxing-xu/iconmod/issues",
   "keywords": ["icon", "iconfont", "iconmod", "iconify", "icones", "svg-symbol"],
