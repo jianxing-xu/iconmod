@@ -7,15 +7,20 @@
   "author": "jianxing-xu",
   "license": "MIT",
   "homepage": "https://github.com/jianxing-xu/iconmod/tree/main/packages/iconmod-use",
-  "publishConfig": {
-    "access": "public"
-  },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jianxing-xu/iconmod.git"
+    "url": "git+https://github.com/jianxing-xu/iconmod.git",
+    "directory": "packages/iconmod-use"
   },
   "bugs": "https://github.com/jianxing-xu/iconmod/issues",
-  "keywords": ["icon", "iconfont", "iconmod", "iconify", "icones", "svg-symbol"],
+  "keywords": [
+    "icon",
+    "iconfont",
+    "iconmod",
+    "iconify",
+    "icones",
+    "svg-symbol"
+  ],
   "sideEffects": false,
   "exports": {
     ".": {
@@ -35,16 +40,23 @@
       ]
     }
   },
+  "bin": {
+    "iconmod": "./bin/iconmod.mjs"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
   "files": [
     "dist"
   ],
   "scripts": {
     "dev": "vite --port 5000",
-    "build": "vite build --mode lib",
+    "build": "node vite.lib.build.js",
     "release": "npx bumpp && npm publish"
   },
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^3.1.2",
+    "fast-glob": "^3.3.2",
     "svelte": "^4.2.19",
     "vite": "^4.4.9",
     "vite-plugin-dts": "^4.2.4"

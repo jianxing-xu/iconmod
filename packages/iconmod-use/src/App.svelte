@@ -1,5 +1,5 @@
 <script>
-  import Iconmod from "./lib/components/iconmod.svelte";
+  import Iconmod from "./pkg/component/iconmod.svelte";
 
   export const name = "world";
 </script>

@@ -1,10 +1,14 @@
 import App from './App.svelte'
-import { setProviderApi } from './lib/components/iconmod.config'
-import './app.css'
+import { setConfig } from './pkg'
+import './App.css'
+
+setConfig({
+  provider: 'http://118.26.38.32/iconmod-api',
+  assetPath: 'assets/iconmod',
+})
 
 const app = new App({
   target: document.getElementById('app')!,
 })
-setProviderApi('http://118.26.38.32/iconmod-api')
 
 export default app
