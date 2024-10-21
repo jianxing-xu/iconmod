@@ -1,28 +1,28 @@
 {
   "name": "@iconmod/use",
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "packageManager": "pnpm@9.9.0",
-  "description": "xxxx",
-  "author": "xxx <xxx>",
+  "description": "iconmod icon use",
+  "author": "jianxing-xu",
   "license": "MIT",
-  "homepage": "https://github.com/xxx",
+  "homepage": "https://github.com/jianxing-xu/iconmod/tree/main/packages/iconmod-use",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/xxx/xxx"
+    "url": "git+https://github.com/jianxing-xu/iconmod/tree/main/packages/iconmod-use"
   },
-  "bugs": "https://github.com/xxx/xxx/issues",
-  "keywords": [],
+  "bugs": "https://github.com/jianxing-xu/iconmod/issues",
+  "keywords": ["icon", "iconfont", "iconmod", "iconify", "icones", "svg-symbol"],
   "sideEffects": false,
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs"
+      "import": "./dist/index.umd.cjs",
+      "require": "./dist/index.umd.cjs"
     }
   },
-  "main": "./dist/index.mjs",
-  "module": "./dist/index.mjs",
+  "main": "./dist/index.umd.cjs",
+  "module": "./dist/index.umd.cjs",
   "types": "./dist/index.d.ts",
   "typesVersions": {
     "*": {
@@ -38,7 +38,7 @@
   "scripts": {
     "dev": "vite --port 5000",
     "build": "vite build --mode lib",
-    "release": "bumpp && npm publish"
+    "release": "npx bumpp && npm publish"
   },
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^3.1.2",
