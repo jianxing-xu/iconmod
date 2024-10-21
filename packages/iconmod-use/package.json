@@ -1,12 +1,15 @@
 {
   "name": "@iconmod/use",
   "type": "module",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "packageManager": "pnpm@9.9.0",
   "description": "iconmod icon use",
   "author": "jianxing-xu",
   "license": "MIT",
   "homepage": "https://github.com/jianxing-xu/iconmod/tree/main/packages/iconmod-use",
+  "publishConfig": {
+    "access": "public"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jianxing-xu/iconmod/"
