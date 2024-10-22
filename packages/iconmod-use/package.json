@@ -15,7 +15,14 @@
     "url": "git+https://github.com/jianxing-xu/iconmod.git"
   },
   "bugs": "https://github.com/jianxing-xu/iconmod/issues",
-  "keywords": ["icon", "iconfont", "iconmod", "iconify", "icones", "svg-symbol"],
+  "keywords": [
+    "icon",
+    "iconfont",
+    "iconmod",
+    "iconify",
+    "icones",
+    "svg-symbol"
+  ],
   "sideEffects": false,
   "exports": {
     ".": {
@@ -35,6 +42,9 @@
       ]
     }
   },
+  "bin": {
+    "iconmod": "bin/iconmod.cjs"
+  },
   "files": [
     "dist"
   ],
@@ -43,10 +53,13 @@
     "build": "vite build --mode lib",
     "release": "npx bumpp && npm publish"
   },
+  "dependencies": {
+  },
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^3.1.2",
     "svelte": "^4.2.19",
     "vite": "^4.4.9",
-    "vite-plugin-dts": "^4.2.4"
+    "vite-plugin-dts": "^4.2.4",
+    "vite-plugin-static-copy": "^2.0.0"
   }
 }

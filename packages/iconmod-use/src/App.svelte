@@ -1,5 +1,5 @@
 <script>
-  import Iconmod from "./lib/components/iconmod.svelte";
+  import IconmodIcon from "../pkg/iconmod.svelte";
 
   export const name = "world";
 </script>
@@ -8,6 +8,6 @@
 
 <div class="grid">
   <div class="icon">
-    <Iconmod />
+    <IconmodIcon />
   </div>
 </div>
