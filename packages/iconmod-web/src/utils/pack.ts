@@ -1,5 +1,6 @@
 import { isVSCode } from '../env'
 import { bufferToString } from './bufferToString'
+import { mfetch } from './http'
 import {
   getSvg,
   getSvgSymbol,
@@ -62,7 +63,7 @@ ${symbols}
   Download(blob, 'sprite.svg')
 }
 export async function RemotePackSVGSprite(projectId: number) {
-  const res = await fetch(`/api/project/packsvgSymbol?projectId=${projectId}`).then(res => res.json())
+  const res = await mfetch(`/project/packsvgSymbol?projectId=${projectId}`).then(res => res.json())
   if (res.code !== 200)
     return ''
   const blob = new Blob([res.data], { type: 'application/javascript' })

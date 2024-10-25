@@ -4,7 +4,6 @@ import { createApp } from 'vue'
 import { createRouter, createWebHistory } from 'vue-router'
 import App from './App.vue'
 import { basePath } from './env'
-import 'iconmod'
 import '@unocss/reset/tailwind.css'
 import 'floating-vue/dist/style.css'
 
