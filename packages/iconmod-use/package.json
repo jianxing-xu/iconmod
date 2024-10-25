@@ -59,7 +59,6 @@
     "@sveltejs/vite-plugin-svelte": "^3.1.2",
     "svelte": "^4.2.19",
     "vite": "^4.4.9",
-    "vite-plugin-dts": "^4.2.4",
-    "vite-plugin-static-copy": "^2.0.0"
+    "vite-plugin-dts": "^4.2.4"
   }
 }

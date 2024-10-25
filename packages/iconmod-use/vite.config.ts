@@ -28,7 +28,7 @@ export default defineConfig(({ mode }) => {
         entry: resolve(__dirname, 'pkg/index.ts'),
         name: 'Iconmod',
         fileName: () => 'index.js',
-        formats: ['umd'],
+        formats: ['es'],
       },
     }
     config.plugins?.push(

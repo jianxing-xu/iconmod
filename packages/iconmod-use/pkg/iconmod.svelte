@@ -6,4 +6,4 @@
   const { apiProvider } = config;
 </script>
 
-<h2>Iconmod Icon</h2>
+<h2>Iconmod Icon api provider: {apiProvider}</h2>
