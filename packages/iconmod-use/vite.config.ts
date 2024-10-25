@@ -5,7 +5,6 @@ import path, { resolve } from 'node:path'
 import { svelte } from '@sveltejs/vite-plugin-svelte'
 import { defineConfig } from 'vite'
 import dts from 'vite-plugin-dts'
-import { viteStaticCopy } from 'vite-plugin-static-copy'
 
 const config: UserConfig = {
   resolve: {
@@ -17,7 +16,6 @@ const config: UserConfig = {
     svelte({
       compilerOptions: {
         customElement: true,
-        hydratable: true,
       },
     }),
   ],
@@ -29,21 +27,16 @@ export default defineConfig(({ mode }) => {
       lib: {
         entry: resolve(__dirname, 'pkg/index.ts'),
         name: 'Iconmod',
-        fileName: 'iconmod',
-        formats: ['iife'],
+        fileName: () => 'index.js',
+        formats: ['umd'],
       },
     }
-    config.plugins?.push(dts({
-      insertTypesEntry: true,
-      include: ['pkg/**/*.ts'],
-    }), viteStaticCopy({
-      targets: [
-        {
-          src: 'src/template',
-          dest: '.',
-        },
-      ],
-    }))
+    config.plugins?.push(
+      dts({
+        insertTypesEntry: true,
+        include: ['pkg/**/*.ts'],
+      }),
+    )
   }
   return config
 })
