@@ -13,8 +13,7 @@ export function getIconsToRetrieve(iconSet: StoredIconSet, names: string[], copy
   const chars = iconsData.chars
   const aliases = iconSetData.aliases || (Object.create(null) as IconifyAliases)
 
-  function resolve(name: string, nested: boolean) {
-    console.log('getIconsToRetrieve:params:nested: ', nested)
+  function resolve(name: string, _: boolean) {
     if (!iconsData.visible[name] && !iconsData.hidden[name]) {
       // No such icon: check for character
       const charValue = chars?.[name]?.[0]

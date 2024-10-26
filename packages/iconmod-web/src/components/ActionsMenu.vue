@@ -95,12 +95,6 @@ watch(
       case 'copy':
         activeMode.value = 'copy'
         break
-      case 'download_iconfont':
-        packIconFont()
-        break
-      case 'download_svgs':
-        packSvgs()
-        break
       case 'download_json':
         packJson()
         break
@@ -163,18 +157,7 @@ const favorited = computed(() => isFavoritedCollection(props.collection.prefix a
           </option>
         </optgroup>
 
-        <!--
-            TODO: due to this function requires to download and pack
-                  the full set, we should make some UI to aware users
-                  in browser version.
-          -->
         <optgroup v-if="collection.prefix !== 'all'" label="Downloads">
-          <option value="download_iconfont" :disabled="inProgress">
-            Iconfont
-          </option>
-          <option value="download_svgs" :disabled="inProgress">
-            SVGs Zip
-          </option>
           <option value="download_json" :disabled="inProgress">
             JSON
           </option>
@@ -185,9 +168,5 @@ const favorited = computed(() => isFavoritedCollection(props.collection.prefix a
       </select>
     </div>
     <slot />
-    <!-- TODO: improve design of custom select -->
-    <!-- <CustomSelect v-model="menu" :options="options">
-      <div icon-button cursor-pointer relative i-carbon-menu title="Menu" />
-    </CustomSelect> -->
   </div>
 </template>

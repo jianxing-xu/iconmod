@@ -8,7 +8,7 @@ import { prettierCode } from './prettier'
 import { svgToPngDataUrl } from './svgToPng'
 
 // const API_ENTRY = 'https://api.iconify.design'
-const API_ENTRY = process.env.VITE_ICON_PROVIDER
+const API_ENTRY = import.meta.env.VITE_ICON_PROVIDER
 
 export async function clearSvgs(svgs: any[], dropColor: boolean) {
   const res = await mfetch('/clearSVGs', { method: 'POST', body: JSON.stringify({ svgs, dropColor }) })

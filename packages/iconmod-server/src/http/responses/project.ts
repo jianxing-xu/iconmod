@@ -2,8 +2,12 @@ import type { IconifyIcon, IconifyJSON } from '@iconify/types'
 import type { User } from '@prisma/client'
 import type { FastifyReply, FastifyRequest } from 'fastify'
 import type { APIv2CollectionResponse } from '../../types/server/v2.js'
+import { Buffer } from 'node:buffer'
 import { IconSet } from '@iconify/tools'
 import { convertParsedSVG, parseSVGContent } from '@iconify/utils'
+// eslint-disable-next-line ts/ban-ts-comment
+// @ts-ignore
+import SVGPacker from 'svg-packer'
 import z from 'zod'
 import { existProject, writeIconSet } from '../../data/custom-icon.js'
 import { triggerIconSetsUpdate } from '../../data/icon-sets.js'
@@ -343,5 +347,35 @@ export async function handleUploadIconsToProject(req: FastifyRequest, res: Fasti
   }
   catch (error: any) {
     res.send({ code: 400, error: error?.message || JSON.stringify(error) })
+  }
+}
+
+export async function handlePackIconfont(req: FastifyRequest, res: FastifyReply) {
+  try {
+    const query = z.object({ projectId: z.string().transform(v => Number.parseInt(v)) }).parse(req.query)
+    const record = await prisma.project.findUnique({
+      where: { id: query.projectId },
+      select: { projectIconSetJSON: true, name: true },
+    })
+    const iconSet = new IconSet(JSON.parse(record?.projectIconSetJSON as string) as IconifyJSON)
+    const retIcons: { name: string, svg: string }[] = []
+    iconSet.forEach((icon) => {
+      retIcons.push({
+        name: `${iconSet.prefix}:${icon}`,
+        svg: iconSet.toSVG(icon)?.toMinifiedString() as string,
+      })
+    })
+    const result = await SVGPacker({
+      fileName: 'iconfont',
+      cssPrefix: iconSet.prefix,
+      fontName: record?.name,
+      icons: retIcons,
+    })
+    const buffer = await result.zip.blob.arrayBuffer()
+    res.type('application/zip').send(Buffer.from(buffer))
+  }
+  catch (error) {
+    console.log(error)
+    res.send({ code: 500, error })
   }
 }

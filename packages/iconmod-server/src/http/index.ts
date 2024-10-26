@@ -19,6 +19,7 @@ import {
   handleCreateProject,
   handleDeleteUserOfProject,
   handleMemberList,
+  handlePackIconfont,
   handlePackSvgJson,
   handlePackSvgSymbolUse,
   handleRemoveIconsFromProject,
@@ -139,6 +140,7 @@ export async function startHTTPServer() {
   server.get('/project/info', (req, res) => runWhenLoaded(() => queryProjectInfo(req, res)))
   server.get('/project/packsvg', (req, res) => handlePackSvgJson(req, res))
   server.get('/project/packsvgSymbol', (req, res) => runWhenLoaded(() => handlePackSvgSymbolUse(req, res)))
+  server.get('/project/packIconfont', (req, res) => runWhenLoaded(() => handlePackIconfont(req, res)))
 
   // SVG: /prefix/icon.svg, /prefix:name.svg, /prefix-name.svg
   server.get(`/:prefix(${iconNameRoutePartialRegEx})/:name(${iconNameRoutePartialRegEx}).svg`, (req, res) => {
