@@ -30,7 +30,7 @@
     "docker:start": "docker-compose up -d",
     "docker:stop": "docker-compose stop iconmod-server",
     "docker:cleanup": "docker-compose stop iconmod-server && docker-compose rm iconmod-server",
-    "docker:restart": "npm run docker:cleanup && && npm run docker:build && npm run docker:start"
+    "docker:restart": "npm run docker:cleanup && npm run docker:build && npm run docker:start"
   },
   "dependencies": {
     "@fastify/cookie": "^9.4.0",
