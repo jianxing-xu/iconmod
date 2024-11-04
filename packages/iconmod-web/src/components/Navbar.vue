@@ -45,13 +45,13 @@ export default defineComponent({
       <iconify-icon icon="carbon:arrow-left" />
     </RouterLink>
 
-    <!-- Homepage Only -->
-    <div flex-auto />
     <h1
-      absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center
-      text-xl font-light tracking-2px pointer-events-none
+      flex items-center justify-center mra
+      text-xl font-light tracking-2px
     >
-      Icônmod
+      <RouterLink to="/">
+        Icônmod
+      </RouterLink>
     </h1>
     <button v-if="!userInfo?.id" class="icon-button text-4" @click="showLogin">
       Sign In

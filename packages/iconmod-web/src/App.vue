@@ -20,7 +20,6 @@ initUser()
 
 <template>
   <div class="flex flex-col h-screen overflow-hidden bg-base" :style="style">
-    <my-element />
     <div class="h-full flex-auto overflow-overlay">
       <RouterView />
     </div>
@@ -64,7 +63,7 @@ initUser()
     </ModalDialog>
 
     <!-- CreateProject -->
-    <ModalDialog :value="showCreateProject">
+    <ModalDialog :value="showCreateProject" @close="showCreateProject = false">
       <CreateProjectDialog v-if="showCreateProject" @close="showCreateProject = false" />
     </ModalDialog>
 
@@ -73,7 +72,7 @@ initUser()
       <AddIconToProjectDialog v-if="showAddToProject" @close="showAddToProject = false" />
     </ModalDialog>
     <!-- UploadIconToProject -->
-    <ModalDialog :value="showUploadIcon">
+    <ModalDialog :value="showUploadIcon" @close="showUploadIcon = false">
       <UploadIconsDialog v-if="showUploadIcon" @close="showUploadIcon = false" />
     </ModalDialog>
 

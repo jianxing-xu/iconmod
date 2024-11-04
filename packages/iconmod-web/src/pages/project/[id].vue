@@ -81,12 +81,12 @@ onMounted(() => {
       Loading...
     </div>
     <div v-else class="flex flex-auto h-full overflow-hidden">
-      <div
+      <!-- <div
         h-full overflow-y-overlay flex-none hidden md:block
         w="250px"
         transition-all duration-300
         border-r border-base
-      />
+      /> -->
 
       <div h-full w-full relative max-h-full grid="~ rows-[max-content_1fr]" of-hidden>
         <div pt-5 flex="~ col gap-2">

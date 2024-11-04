@@ -34,7 +34,6 @@ export async function getImporters(): Promise<Importer[]> {
       importers.push(splitPackagesImporter)
       break
   }
-  console.log('custonIconDir: ', appConfig.customIconDir)
   /**
    * Add custom icons from `icons` directory
    */
@@ -46,7 +45,6 @@ export async function getImporters(): Promise<Importer[]> {
 
         // Filter icon sets. Returns true if icon set should be included, false if not.
         filter: (prefix) => {
-          console.log('prefix:', prefix)
           return true
         },
       }),

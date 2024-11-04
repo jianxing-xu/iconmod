@@ -1,8 +1,9 @@
 <script lang="ts" setup>
 import { getOwnProejcts } from '../store/project'
-import { hideLogin, isSignIn, resetUser, showLoginDialog, userInfo } from '../store/user'
+import { hideLogin, resetUser, showLoginDialog, userInfo } from '../store/user'
 import { mfetch } from '../utils/http'
 
+const mode = ref('in')
 const loading = ref(false)
 const formData = ref({
   email: '',
@@ -36,7 +37,7 @@ function onSubmit(e: Event) {
 </script>
 
 <template>
-  <ModalDialog :value="showLoginDialog">
+  <ModalDialog :value="showLoginDialog" @close="showLoginDialog = false">
     <form class="w-500px m-h-300px flex flex-col items-center mb-4 mt0" @submit.stop="onSubmit">
       <div py2 wfull border-b text-center border-gray-8>
         Icon Mod
@@ -50,15 +51,15 @@ function onSubmit(e: Event) {
       <div class="mt3">
         <input v-model="formData.pwd" placeholder="pwd" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$" required autocomplete="on" type="password" class="w-200px h40px rd-2 bg-base-2 outline-none px-2">
       </div>
-      <button class="text-3 text-right icon-button border-b mt1" type="button" @click="isSignIn = !isSignIn">
-        {{ isSignIn ? 'go sign up' : 'go sign in' }}
+      <button class="text-3 text-right icon-button border-b mt1" type="button" @click="mode = mode === 'in' ? 'up' : 'in'">
+        {{ mode === 'in' ? 'go sign up' : 'go sign in' }}
       </button>
       <div class="mt4 flex gap-4">
-        <button v-show="isSignIn" class="icon-button border rd-2 p2 flex items-center">
+        <button v-show="mode === 'in'" class="icon-button border rd-2 p2 flex items-center">
           Sign in
           <iconify-icon v-show="loading" icon="svg-spinners:270-ring-with-bg" class="ml-1" />
         </button>
-        <button v-show="!isSignIn" class="icon-button border rd-2 p2">
+        <button v-show="mode === 'up'" class="icon-button border rd-2 p2">
           Sign up
         </button>
       </div>

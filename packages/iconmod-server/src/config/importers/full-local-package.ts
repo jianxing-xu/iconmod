@@ -23,7 +23,6 @@ export function createPackageIconSetImporter(
     dir = filename ? dirname(filename) : undefined
   }
   catch (err) {
-    console.log('createpackageIconSetImporter: ', err)
   }
   if (dir) {
     return createIconSetsPackageImporter(new DirectoryDownloader<ImportedData>(dir), {})

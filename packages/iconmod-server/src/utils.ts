@@ -12,11 +12,11 @@ function insertSvgIntoBodyFirstElement() {
       svgElement.style.height = "0";
       svgElement.style.overflow = "hidden";
       const firstChild = document.body.firstChild;
-    if (firstChild) {
-      document.body.insertBefore(svgElement, firstChild);
-    } else {
-      document.body.appendChild(svgElement);
-    }
+      if (firstChild) {
+        document.body.insertBefore(svgElement, firstChild);
+      } else {
+        document.body.appendChild(svgElement);
+      }
     }
 }
 if (["complete", "loaded", "interactive"].indexOf(document.readyState) >= 0) {
